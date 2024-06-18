@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <PackageId>Microsoft.Azure.SpaceFx.HostServices.Logging.Plugins</PackageId>
+    <PackageId>Microsoft.Azure.SpaceSDK.HostServices.Logging.Plugins</PackageId>
     <PackageTags>Microsoft Azure Space SDK;Microsoft;Azure;Space;</PackageTags>
     <Description>
       Base class for Logging Service Plugins
