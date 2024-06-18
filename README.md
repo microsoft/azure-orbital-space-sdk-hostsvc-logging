@@ -6,11 +6,11 @@ Logging Service is the Azure Orbital Space SDK's host service to upload and down
 
 Outputs:
 
-| Item                                                            | Description                                                             |
-| --------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `Microsoft.Azure.SpaceFx.HostServices.Logging.Plugins.1.0.0.nupkg` | DotNet Nuget Package for building Hostsvc-Logging Plugins                  |
-| `hostsvc-logging:0.11.0`                                           | Container image for app                                                 |
-| `hostsvc-logging:0.11.0_base`                                      | Base container image for app.  Requires SpaceSDK_Base and build service |
+| Item                                                                | Description                                                             |
+| ------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `Microsoft.Azure.SpaceSDK.HostServices.Logging.Plugins.1.0.0.nupkg` | DotNet Nuget Package for building Hostsvc-Logging Plugins               |
+| `hostsvc-logging:0.11.0`                                            | Container image for app                                                 |
+| `hostsvc-logging:0.11.0_base`                                       | Base container image for app.  Requires SpaceSDK_Base and build service |
 
 ## Building
 
@@ -56,7 +56,7 @@ Outputs:
     ```bash
     # Push the nuget package to the container registry
     /var/spacedev/build/push_build_artifact.sh \
-            --artifact /var/spacedev/nuget/logging/Microsoft.Azure.SpaceSDK.HostServices.logging.Plugins.0.11.0.nupkg \
+            --artifact /var/spacedev/nuget/logging/Microsoft.Azure.SpaceSDK.HostServices.Logging.Plugins.0.11.0.nupkg \
             --annotation-config azure-orbital-space-sdk-hostsvc-logging.yaml \
             --architecture amd64 \
             --artifact-version 0.11.0
