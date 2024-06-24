@@ -1,0 +1,48 @@
+name: hostsvc-logging-build
+
+on: 
+    workflow_dispatch:
+    push:
+        branches:
+        - main
+
+jobs:
+  build-hostsvc-logging-amd64:
+    permissions:
+      contents: read
+      packages: write
+
+    uses: microsoft/azure-orbital-space-sdk-github-actions/.github/workflows/service-build.yml@main
+    with:
+      APP_PROJECT: ./src/hostsvc-logging.csproj
+      NUGET_PROJECT: ./src_pluginBase/pluginBase.csproj
+      OUTPUT_DIR: /var/spacedev/tmp/hostsvc-logging
+      NUGET_STAGING_DIRECTORY: /var/spacedev/nuget/logging
+      NUGET_FILE_PREFIX: Microsoft.Azure.SpaceSDK.HostServices.Logging.Plugins
+      ANNOTATION: azure-orbital-space-sdk-hostsvc-logging.yaml
+      WORKFLOW_AGENT: ubuntu-latest
+      ARCHITECTURE: amd64
+    secrets:
+      GIT_HUB_USER_NAME: ${{ secrets.GIT_HUB_USER_NAME }}
+      GIT_HUB_USER_TOKEN: ${{ secrets.GIT_HUB_USER_TOKEN }}
+      SETUP_REPO_URL: ${{ secrets.SETUP_REPO_URL }}
+
+  build-hostsvc-logging-arm64:
+    permissions:
+      contents: read
+      packages: write
+
+    uses: microsoft/azure-orbital-space-sdk-github-actions/.github/workflows/service-build.yml@main
+    with:
+      APP_PROJECT: ./src/hostsvc-logging.csproj
+      NUGET_PROJECT: ./src_pluginBase/pluginBase.csproj
+      OUTPUT_DIR: /var/spacedev/tmp/hostsvc-logging
+      NUGET_STAGING_DIRECTORY: /var/spacedev/nuget/logging
+      NUGET_FILE_PREFIX: Microsoft.Azure.SpaceSDK.HostServices.Logging.Plugins
+      ANNOTATION: azure-orbital-space-sdk-hostsvc-logging.yaml
+      WORKFLOW_AGENT: spacesdk-ubuntu-2204LTS-arm64
+      ARCHITECTURE: arm64
+    secrets:
+      GIT_HUB_USER_NAME: ${{ secrets.GIT_HUB_USER_NAME }}
+      GIT_HUB_USER_TOKEN: ${{ secrets.GIT_HUB_USER_TOKEN }}
+      SETUP_REPO_URL: ${{ secrets.SETUP_REPO_URL }}
