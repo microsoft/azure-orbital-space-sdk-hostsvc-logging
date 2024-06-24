@@ -5,7 +5,6 @@ public abstract class PluginBase : Core.IPluginBase, IPluginBase {
     public abstract ILogger Logger { get; set; }
     public abstract Task BackgroundTask();
     public abstract void ConfigureLogging(ILoggerFactory loggerFactory);
-    public abstract Task<HeartBeatPulse?> HeartBeatPulse(HeartBeatPulse input_request);
     public abstract Task<PluginHealthCheckResponse> PluginHealthCheckResponse();
 
     // Logging Service Stuff
