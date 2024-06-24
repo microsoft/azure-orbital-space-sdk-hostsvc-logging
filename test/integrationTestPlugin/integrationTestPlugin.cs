@@ -18,9 +18,6 @@ public class IntegrationTestPlugin : Microsoft.Azure.SpaceFx.HostServices.Loggin
 
     public override Task<PluginHealthCheckResponse> PluginHealthCheckResponse() => Task.FromResult(new MessageFormats.Common.PluginHealthCheckResponse());
 
-    public override Task<HeartBeatPulse?> HeartBeatPulse(HeartBeatPulse input_request) {
-        throw new NotImplementedException();
-    }
     public override Task<(LogMessage?, LogMessageResponse?)> LogMessageReceived(LogMessage? input_request, LogMessageResponse? input_response) => Task.Run(() => {
         if (input_request == null || input_response == null) return (input_request, input_response);
 
