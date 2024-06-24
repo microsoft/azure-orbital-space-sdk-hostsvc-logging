@@ -4,7 +4,7 @@ on:
     workflow_dispatch:
     push:
         branches:
-        - main
+        - km/add_action
 
 jobs:
   build-hostsvc-logging-amd64:
