@@ -17,8 +17,8 @@ jobs:
       APP_PROJECT: ./src/hostsvc-logging.csproj
       NUGET_PROJECT: ./src_pluginBase/pluginBase.csproj
       OUTPUT_DIR: /var/spacedev/tmp/hostsvc-logging
-      NUGET_STAGING_DIRECTORY: /var/spacedev/nuget/position
-      NUGET_FILE_PREFIX: Microsoft.Azure.SpaceSDK.HostServices.Position.Plugins
+      NUGET_STAGING_DIRECTORY: /var/spacedev/nuget/logging
+      NUGET_FILE_PREFIX: Microsoft.Azure.SpaceSDK.HostServices.Logging.Plugins
       ANNOTATION: azure-orbital-space-sdk-hostsvc-logging.yaml
       WORKFLOW_AGENT: ubuntu-latest
       ARCHITECTURE: amd64
@@ -37,8 +37,8 @@ jobs:
       APP_PROJECT: ./src/hostsvc-logging.csproj
       NUGET_PROJECT: ./src_pluginBase/pluginBase.csproj
       OUTPUT_DIR: /var/spacedev/tmp/hostsvc-logging
-      NUGET_STAGING_DIRECTORY: /var/spacedev/nuget/position
-      NUGET_FILE_PREFIX: Microsoft.Azure.SpaceSDK.HostServices.Position.Plugins
+      NUGET_STAGING_DIRECTORY: /var/spacedev/nuget/logging
+      NUGET_FILE_PREFIX: Microsoft.Azure.SpaceSDK.HostServices.Logging.Plugins
       ANNOTATION: azure-orbital-space-sdk-hostsvc-logging.yaml
       WORKFLOW_AGENT: spacesdk-ubuntu-2204LTS-arm64
       ARCHITECTURE: arm64
