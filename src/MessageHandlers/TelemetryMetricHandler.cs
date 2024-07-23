@@ -25,7 +25,7 @@ public partial class MessageHandler<T> {
 
             returnResponse = output_response;
 
-            _logger.LogDebug("Sending response type '{messageType}' to '{appId}'  (trackingId: '{trackingId}' / correlationId: '{correlationId}')", returnResponse.GetType().Name, fullMessage.SourceAppId, returnResponse.ResponseHeader.TrackingId, returnResponse.ResponseHeader.CorrelationId);
+            _logger.LogDebug("Sending response type '{messageType}' to '{appId}'  (trackingId: '{trackingId}' / correlationId: '{correlationId}' / status: '{status}')", returnResponse.GetType().Name, fullMessage.SourceAppId, returnResponse.ResponseHeader.TrackingId, returnResponse.ResponseHeader.CorrelationId, returnResponse.ResponseHeader.Status);
 
             // Route the response back to the calling user
             _client.DirectToApp(appId: fullMessage.SourceAppId, message: returnResponse);
@@ -75,7 +75,7 @@ public partial class MessageHandler<T> {
             returnResponse.ResponseHeader.Status = MessageFormats.Common.StatusCodes.Successful;
 
             // Log the sending of the response
-            _logger.LogDebug("Sending response type '{messageType}' to '{appId}'  (trackingId: '{trackingId}' / correlationId: '{correlationId}')", returnResponse.GetType().Name, fullMessage.SourceAppId, returnResponse.ResponseHeader.TrackingId, returnResponse.ResponseHeader.CorrelationId);
+            _logger.LogDebug("Sending response type '{messageType}' to '{appId}'  (trackingId: '{trackingId}' / correlationId: '{correlationId}' / status: '{status}')", returnResponse.GetType().Name, fullMessage.SourceAppId, returnResponse.ResponseHeader.TrackingId, returnResponse.ResponseHeader.CorrelationId, returnResponse.ResponseHeader.Status);
 
             // Send the response directly to the app
             _client.DirectToApp(appId: fullMessage.SourceAppId, message: returnResponse);

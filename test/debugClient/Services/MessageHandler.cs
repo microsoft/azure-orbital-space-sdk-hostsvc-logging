@@ -27,7 +27,7 @@ public class MessageHandler<T> : Microsoft.Azure.SpaceFx.Core.IMessageHandler<T>
 
     public void LogMessageResponseHandler(LogMessageResponse response) {
         _logger.LogInformation($"LogMessageResponse: {response.ResponseHeader.Status}. TrackingID: {response.ResponseHeader.TrackingId}");
-    }
+    
     public void PluginConfigurationResponseHandler(PluginConfigurationResponse response) {
         _logger.LogInformation($"PluginConfigurationResponse: {response.ResponseHeader.Status}. TrackingID: {response.ResponseHeader.TrackingId}");
     }
