@@ -88,6 +88,7 @@ public partial class MessageHandler<T> {
 
         // Create a new response from the request message
         MessageFormats.Common.TelemetryMetricResponse returnResponse = Core.Utils.ResponseFromRequest(message, new MessageFormats.Common.TelemetryMetricResponse());
+        returnResponse.ResponseHeader.Status = MessageFormats.Common.StatusCodes.Pending;
 
         // If the MetricTime in the message is null, set it to the current UTC time
         if (message.MetricTime == null) {
@@ -139,6 +140,13 @@ public partial class MessageHandler<T> {
                                        _pluginLoader.CallPlugins<MessageFormats.Common.TelemetryMetric?, Plugins.PluginBase, MessageFormats.Common.TelemetryMetricResponse>(
                                            orig_request: message, orig_response: returnResponse,
                                            pluginDelegate: _pluginDelegates.TelemetryMetricResponse);
+
+        if (output_response == null || output_request == null) {
+            _logger.LogTrace("Plugins nullified '{messageType}' or '{output_requestMessageType}' from '{sourceApp}'.  Dropping Message (trackingId: '{trackingId}' / correlationId: '{correlationId}')", returnResponse.GetType().Name, message.GetType().Name, fullMessage.SourceAppId, message.RequestHeader.TrackingId, message.RequestHeader.CorrelationId);
+            return null;
+        } else {
+            returnResponse = output_response;
+        }
 
         // Return the response
         return returnResponse;
