@@ -18,7 +18,7 @@ public partial class Services {
             // Check to make sure there's at least one log file and no more than two.
             // One log file means there's a current log file, two means there's a current log file and a previous log file that hasn't been downlinked yet.
             // This is expected behavior and means the service is writing logs and downlinking them correctly.
-            if (files.Length >= 1 && files.Length <= 2) {
+            if (files.Length <= 2) {
                 return true;
             }
 
