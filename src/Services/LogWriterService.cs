@@ -63,7 +63,7 @@ public partial class Services {
                         string jsonString = JsonSerializer.Serialize(logMessage, jsonOptions);
 
                         // Append the serialized log message to the log file
-                        await File.AppendAllTextAsync(logFileName, jsonString, stoppingToken);
+                        await File.AppendAllLinesAsync(logFileName, new string[] { jsonString }, stoppingToken);
 
                         // Call post-write plugins
                         _pluginLoader.CallPlugins<MessageFormats.Common.LogMessage?, Plugins.PluginBase, string>(
